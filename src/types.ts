@@ -2,6 +2,9 @@ export interface IRequestOptions {
   /** Requested URL */
   path: string
 
+  /** Optional abort signal */
+  signal?: AbortSignal
+
   /**
    * User token.
    * If not present, then taken from the client.

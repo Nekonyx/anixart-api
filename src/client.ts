@@ -1,7 +1,11 @@
+import createDebug from 'debug'
+
 import { AuthApi, ReleaseApi } from './api'
 import { USER_AGENT } from './constants'
 import { IResponse } from './contracts'
 import { IRequestOptions } from './types'
+
+const debug = createDebug('anixart:client')
 
 export interface IAnixartOptions {
   /**
@@ -47,6 +51,8 @@ export class Anixart {
    * @returns {Promise<T>} A promise that resolves with the JSON response.
    */
   public async call<T extends IResponse>(opts: IRequestOptions): Promise<T> {
+    debug('preparing request to %s: %o', opts.path, opts)
+
     const endpoint = new URL(opts.path, this.apiUrl)
 
     const headers: Record<string, string> = {
@@ -54,7 +60,8 @@ export class Anixart {
     }
 
     const init: RequestInit = {
-      headers
+      headers,
+      signal: opts.signal
     }
 
     if (opts.token || this.token) {
@@ -80,8 +87,13 @@ export class Anixart {
       headers['content-length'] = init.body.length.toString()
     }
 
-    const response = await fetch(endpoint, init)
+    debug('making request to %s: %o', opts.path, init)
 
-    return response.json()
+    const response = await fetch(endpoint, init)
+    const data = await response.json()
+
+    debug('got response from %s: %o', opts.path, data)
+
+    return data
   }
 }
