@@ -70,7 +70,9 @@ export class Anixart {
 
     if (opts.params) {
       for (const [key, value] of Object.entries(opts.params)) {
-        endpoint.searchParams.set(key, value)
+        if (typeof value !== 'undefined') {
+          endpoint.searchParams.set(key, value)
+        }
       }
     }
 
@@ -87,12 +89,12 @@ export class Anixart {
       headers['content-length'] = init.body.length.toString()
     }
 
-    debug('making request to %s: %o', opts.path, init)
+    debug('making request to %s (%s): %o', opts.path, endpoint, init)
 
     const response = await fetch(endpoint, init)
     const data = await response.json()
 
-    debug('got response from %s: %o', opts.path, data)
+    debug('got response from %s (%s): %o', opts.path, endpoint, data)
 
     return data
   }
