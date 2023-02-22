@@ -21,14 +21,14 @@ export class AuthApi {
   public constructor(private readonly client: Anixart) {}
 
   public async login(params: IAuthLoginParams): Promise<IAuthLoginResult> {
-    const request: IAuthLoginRequest = {
+    const body: IAuthLoginRequest = {
       login: params.login,
       password: params.password
     }
 
     const response = await this.client.call<IAuthLoginResponse>({
       path: '/auth/signIn',
-      urlencoded: request,
+      urlencoded: body,
       ...params.request
     })
 

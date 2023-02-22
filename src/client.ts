@@ -1,4 +1,4 @@
-import { AuthApi } from './api'
+import { AuthApi, ReleaseApi } from './api'
 import { USER_AGENT } from './constants'
 import { IResponse } from './contracts'
 import { IRequestOptions } from './types'
@@ -26,6 +26,9 @@ export class Anixart {
 
   /** Authentication API */
   public readonly auth = new AuthApi(this)
+
+  /** Releases API */
+  public readonly releases = new ReleaseApi(this)
 
   /**
    * Creates a new instance of Anixart with the provided options.
