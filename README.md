@@ -12,7 +12,9 @@ The library was written for personal and educational purposes. When using this l
 - Abusing the API (such as sending a large number of requests, auto-registering accounts/bots, spamming, etc.) may result in restrictions being placed on its use for everyone.
 - Sharing links to the API may result in Anixart being blocked in certain countries.
 
-For these reasons, the library does not contain API URLs. To obtain it, you must decompile the .apk file yourself.
+For these reasons, the library does not contain API URLs and variety of authentication methods other than logging in.
+
+To obtain API URL, you must decompile the .apk file yourself.
 
 ### Usage:
 
