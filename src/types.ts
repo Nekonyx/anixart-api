@@ -25,5 +25,5 @@ export interface IRequestOptions {
 }
 
 export interface IBaseApiParams {
-  request: Omit<IRequestOptions, 'path'>
+  request?: Omit<IRequestOptions, 'path'>
 }
