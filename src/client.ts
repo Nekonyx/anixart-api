@@ -55,7 +55,7 @@ export class Anixart {
     }
 
     if (opts.token || this.token) {
-      endpoint.searchParams.set('token', opts.token || this.token)
+      endpoint.searchParams.set('token', opts.token || this.token!)
     }
 
     if (opts.params) {

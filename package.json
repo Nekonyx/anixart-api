@@ -2,10 +2,14 @@
   "name": "anixart",
   "license": "MIT",
   "author": "Nekonyx <nekonyx@proton.me>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nekonyx/anixart-api"
+  },
   "files": [
     "lib"
   ],
