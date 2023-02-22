@@ -1,5 +1,6 @@
 {
   "name": "anixart",
+  "packageManager": "pnpm@7.26.3",
   "license": "MIT",
   "author": "Nekonyx <nekonyx@proton.me>",
   "version": "0.0.3",
@@ -14,6 +15,7 @@
     "lib"
   ],
   "scripts": {
+    "prepack": "rm -rf lib && pnpm build",
     "watch": "tsc -w",
     "build": "tsc"
   },
